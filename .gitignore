@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# cloundFlare
+.open-next
+
 # production
 /build
 

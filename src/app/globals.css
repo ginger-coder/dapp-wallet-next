@@ -1,24 +1,18 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* CSS */
+.black-btn {
+    background-color: #000000; /* 黑色背景 */
+    color: #ffffff; /* 白色文字 */
+    padding: 10px 20px; /* 上下10px，左右20px的内边距 */
+    border: none; /* 无边框 */
+    border-radius: 5px; /* 圆角 */
+    cursor: pointer; /* 鼠标悬停时显示手型 */
+    font-size: 16px; /* 文字大小 */
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* 悬停效果 */
+.black-btn:hover {
+    background-color: #333333; /* 鼠标悬停时稍微变亮的黑色 */
+    transition: background-color 0.3s; /* 平滑过渡效果 */
 }
