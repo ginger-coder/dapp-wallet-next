@@ -5,10 +5,13 @@
     "scripts": {
         "dev": "next dev --turbopack",
         "build": "next build",
+        "analyze": "ANALYZE=true next build",
         "start": "next start",
         "lint": "next lint",
         "build:worker": "opennextjs-cloudflare",
-        "deploy:worker": "pnpm build:worker && wrangler deploy"
+        "dev:worker": "wrangler dev --port 8771",
+        "preview:worker": "npm run build:worker && npm run dev:worker",
+        "deploy:worker": "npm run build:worker && wrangler deploy"
     },
     "dependencies": {
         "@tanstack/react-query": "^5.66.11",
@@ -23,6 +26,7 @@
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",
+        "@next/bundle-analyzer": "^15.2.0",
         "@opennextjs/cloudflare": "^0.5.7",
         "@tailwindcss/postcss": "^4",
         "@types/node": "^20",

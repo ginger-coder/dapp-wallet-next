@@ -1,10 +1,15 @@
 "use client";
 
-import React from "react";
 import { WagmiProvider, createConfig, http } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ConnectKitProvider, getDefaultConfig } from "connectkit";
+import { getDefaultConfig, ConnectKitProvider } from "connectkit";
+// import dynamic from 'next/dynamic'
+
+// const ConnectKitProvider = dynamic(
+//   () => import('connectkit').then(mod => mod.ConnectKitProvider),
+//   { ssr: false }
+// )
 
 type Chain = {
     id: number;
@@ -76,14 +81,14 @@ const config = createConfig(
 
         // Optional App Info
         appDescription: "Your App Description",
-        appUrl: "https://family.co", // your app's url
-        appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
+        appUrl: "", // your app's url
+        appIcon: "", // your app's icon, no bigger than 1024x1024px (max. 1MB)
     })
 );
 
 const queryClient = new QueryClient();
 
-export const Web3Provider = ({ children }: { children: React.ReactNode }) => {
+const Web3Provider = ({ children }: { children: React.ReactNode }) => {
     return (
         <WagmiProvider config={config}>
             <QueryClientProvider client={queryClient}>
@@ -92,3 +97,5 @@ export const Web3Provider = ({ children }: { children: React.ReactNode }) => {
         </WagmiProvider>
     );
 };
+
+export default Web3Provider;

@@ -1,6 +1,12 @@
 'use client'
 import "./wallet.css";
-import { Web3Provider } from "@/components/Web3Provider";
+import dynamic from 'next/dynamic'
+
+const Web3Provider = dynamic(
+  () => import('@/components/Web3Provider'),
+  { ssr: false }
+);
+
 import Header from "@/components/Common/Header";
 export default function RootLayout({
     children,
